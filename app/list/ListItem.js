@@ -4,10 +4,24 @@ import { useEffect } from "react";
 import axios from "axios";
 
 export default function ListItem({ result }) {
-const deleteHandler = () => {
-    axios.delete('/api/post/delete').then((res) => {
-        console.log(res)
-    })
+const deleteHandler = (e,id) => {
+  console.log("id", id);
+  // fetch('api/post/delete', {
+  //   method : "POST",
+  //   body : id
+  // }).then((res) => {
+  //   if(res.status === 200) {
+  //     alert('삭제 성공')
+  //     e.target.parentElement.style.opacity = 0 ;
+  //     setTimeout(() => {
+  //       e.target.parentElement.style.display = 'none';
+  //     }, 1000)
+  //   }
+  // })
+  // .catch((error) => {
+  //   console.log(error)
+  // })
+  fetch('/api/test?id=1')
 }
   return (
     <div>
@@ -22,9 +36,9 @@ const deleteHandler = () => {
               <h4>{post.title}</h4>
             </Link>
             <Link href={`/edit/${post._id}`} style={{ textDecoration: "none" }}>
-              🛠
+              📝
             </Link>
-            <span onClick={() => deleteHandler()}>🗑️</span>
+            <span onClick={(e) => deleteHandler(e, post._id)}>🗑️</span>
             <p>{post.content}</p>
           </div>
         );
