@@ -13,7 +13,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const user = await getServerSession(authOptions);
-  console.log(user.user.name);
+  
   return (
     <html lang="en">
       <body className={inter.className}>
