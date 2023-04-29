@@ -15,7 +15,7 @@ export default async function Detail(props) {
             <div>
               <h4>{result.title}</h4>
               <p>{result.content}</p>
-              <Comment />
+              <Comment id ={result._id.toString()}/>
             </div>
           </>
         ) : (
